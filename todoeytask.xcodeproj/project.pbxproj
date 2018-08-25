@@ -92,21 +92,93 @@
 		7E083736212D7264006B21D7 /* todoeytask */ = {
 			isa = PBXGroup;
 			children = (
-				7E083737212D7264006B21D7 /* AppDelegate.swift */,
-				7E083739212D7264006B21D7 /* Tasks.swift */,
-				7E1D458D212EA0FA0022F664 /* DataModel.xcdatamodeld */,
+				7E0A63452131726A00881047 /* All Cells */,
+				7E0A63412131722700881047 /* Notification */,
+				7E0A633E213171C400881047 /* Controller */,
+				7E0A633D213171B700881047 /* Model */,
+				7E0A633C213171A800881047 /* View */,
+				7E083743212D7265006B21D7 /* Info.plist */,
+			);
+			path = todoeytask;
+			sourceTree = "<group>";
+		};
+		7E0A633C213171A800881047 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				7E08373B212D7264006B21D7 /* Main.storyboard */,
 				7E08373E212D7265006B21D7 /* Assets.xcassets */,
 				7E083740212D7265006B21D7 /* LaunchScreen.storyboard */,
-				7E083743212D7265006B21D7 /* Info.plist */,
-				7E083749212D7559006B21D7 /* CustomCells.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E0A633D213171B700881047 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E1D458D212EA0FA0022F664 /* DataModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E0A633E213171C400881047 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7E0A63442131724900881047 /* Setting */,
+				7E0A63402131720F00881047 /* Category */,
+				7E0A633F213171D000881047 /* Items */,
+				7E083737212D7264006B21D7 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7E0A633F213171D000881047 /* Items */ = {
+			isa = PBXGroup;
+			children = (
 				7E17CC99212E6DBE00F33822 /* TaskDetailsTableViewController.swift */,
+				7E083739212D7264006B21D7 /* Tasks.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		7E0A63402131720F00881047 /* Category */ = {
+			isa = PBXGroup;
+			children = (
 				7E069FE0212FED1A00D32D1E /* GroupsTableViewController.swift */,
 				7E069FE2212FF1BC00D32D1E /* GroupDetailsTableViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7E0A63412131722700881047 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7E0A63422131723300881047 /* Shared */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		7E0A63422131723300881047 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
 				7E0A63382131582500881047 /* Notification.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		7E0A63442131724900881047 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
 				7E0A633A2131586300881047 /* NotificationTableViewController.swift */,
 			);
-			path = todoeytask;
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		7E0A63452131726A00881047 /* All Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7E083749212D7559006B21D7 /* CustomCells.swift */,
+			);
+			path = "All Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

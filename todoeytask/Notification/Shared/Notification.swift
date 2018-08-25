@@ -17,7 +17,7 @@ class LocalPushManager: NSObject {
             if error == nil && granted
             {
                 UserDefaults.standard.setValue(true, forKey: "SendNotification")
-                LocalPushManager.shared.sendLocalPush(in: 60)
+                LocalPushManager.shared.sendLocalPush(in: 60 * 120)
             }
         }
     }
