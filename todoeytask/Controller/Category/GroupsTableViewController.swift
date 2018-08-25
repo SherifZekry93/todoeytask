@@ -17,8 +17,20 @@ class GroupsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         loadItems()
-        LocalPushManager.shared.requestAuth()
-    }
+        
+        if UserDefaults.standard.string(forKey: "FirstTime") == nil
+        {
+            UserDefaults.standard.setValue(true, forKey: "SendNotification")
+            UserDefaults.standard.setValue("no", forKey: "FirstTime")
+            print("setting it to true")
+        }
+        if UserDefaults.standard.bool(forKey: "SendNotification")
+        {
+            print("schedule")
+            LocalPushManager.shared.requestAuth()
+            LocalPushManager.shared.sendLocalPush(in: 60)
+        }
+      }
     //MARK:- Core Data Manipulation Methods
     func loadItems(for request:NSFetchRequest<Category>  = Category.fetchRequest()){
         do

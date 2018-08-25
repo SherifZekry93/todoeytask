@@ -395,6 +395,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="uxe-fh-wIS">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="ZVh-Vv-VxE">
+                                        <rect key="frame" x="0.0" y="393" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVh-Vv-VxE" id="OK8-ac-DTd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuJ-3I-n2R">
+                                                    <rect key="frame" x="116" y="5" width="143" height="39"/>
+                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="39" id="BGD-Jd-QWK"/>
+                                                        <constraint firstAttribute="width" constant="143" id="IdV-ci-elS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="Delete Task">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteButtonPress:" destination="t4w-OB-thk" eventType="touchUpInside" id="r2y-fm-oGd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OuJ-3I-n2R" firstAttribute="centerX" secondItem="OK8-ac-DTd" secondAttribute="centerX" id="ZpP-mv-Dye"/>
+                                                <constraint firstItem="OuJ-3I-n2R" firstAttribute="centerY" secondItem="OK8-ac-DTd" secondAttribute="centerY" id="pS7-s2-suS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="t4w-OB-thk" id="tKP-qV-vm9"/>
@@ -415,6 +449,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="V78-yz-5il" id="ig7-uf-qvs"/>
+                        <outlet property="deleteButton" destination="OuJ-3I-n2R" id="GDD-i6-bLN"/>
                         <outlet property="doneButton" destination="3bj-Y5-tNF" id="wcQ-iV-t9Y"/>
                         <outlet property="pickerView" destination="3rI-PY-nMK" id="iny-Zs-EXn"/>
                         <outlet property="slackViewColors" destination="1E6-AM-97f" id="MD9-7N-P6q"/>

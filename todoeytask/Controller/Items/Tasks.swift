@@ -42,7 +42,7 @@ class Tasks: UITableViewController
         }
         if segue.identifier == "EditTask"
         {
-         
+            
             let dest = segue.destination as! TaskDetailsTableViewController
             let index = tableView.indexPath(for: sender as! UITableViewCell)
             dest.delegate = self
@@ -85,30 +85,43 @@ class Tasks: UITableViewController
 //MARK:- interface for data transfer methods
 extension Tasks : taskManipulation
 {
+    func editItem(item: ToDoItem, deleteItem: Bool) {
+        if deleteItem == false
+        {
+            if let index = todoItems.index(of: item)
+            {
+                let indexPath = IndexPath(row: index, section: 0)
+                
+                if let cell = tableView.cellForRow(at: indexPath) as? ToDoItemCustomCell
+                {
+                    configureCell(for:cell,item:item)
+                }
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        else
+        {
+            
+            if let index = todoItems.index(of: item)
+            {
+                let indexPath = IndexPath(row: index, section: 0)
+                context.delete(todoItems[indexPath.row])
+                todoItems.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath] , with: .automatic)
+                saveData()
+            }
+        }
+    }
+    
     func addItem(item: ToDoItem)
     {
         addRowToTableView(item: item)
     }
     
-    func editItem(item: ToDoItem) {
-        if let index = todoItems.index(of: item)
-        {
-            let indexPath = IndexPath(row: index, section: 0)
-            
-            if let cell = tableView.cellForRow(at: indexPath) as? ToDoItemCustomCell
-            {
-                configureCell(for:cell,item:item)
-            }
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        }
-    }
 }
 //MARK:- table view methods
 extension Tasks
 {
-    
-
-    
     func addRowToTableView(item:ToDoItem)
     {
         let newIndex = self.todoItems.count

@@ -18,7 +18,7 @@ class NotificationTableViewController: UITableViewController {
     {
         if sender.isOn
         {
-            LocalPushManager.shared.sendLocalPush(in: 60)
+            LocalPushManager.shared.sendLocalPush(in: 60)//just to test
         }
         else
         {

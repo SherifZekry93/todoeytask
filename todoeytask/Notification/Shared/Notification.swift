@@ -16,8 +16,9 @@ class LocalPushManager: NSObject {
         center.requestAuthorization(options: [.alert,.sound]) { (granted, error) in
             if error == nil && granted
             {
-                UserDefaults.standard.setValue(true, forKey: "SendNotification")
-                LocalPushManager.shared.sendLocalPush(in: 60)//change that to 60 * the time you want making it one minute is just for testing purposes
+                print("hererequest")
+                //UserDefaults.standard.setValue(true, forKey: "SendNotification")
+                //change that to 60 * the time you want making it one minute is just for testing purposes
             }
         }
     }
@@ -34,7 +35,7 @@ class LocalPushManager: NSObject {
         center.add(request) { (error) in
             if error == nil
             {
-                print("Schedule push succeed")
+                print("schedule local")
             }
         }
     }

@@ -13,7 +13,7 @@ import  IQKeyboardManagerSwift
 protocol taskManipulation
 {
     func addItem(item:ToDoItem)
-    func editItem(item:ToDoItem)
+    func editItem(item:ToDoItem,deleteItem:Bool)
 }
 
 class TaskDetailsTableViewController: UITableViewController
@@ -27,7 +27,6 @@ class TaskDetailsTableViewController: UITableViewController
     var selectedColor:Int?
     var allCats:[Category]  = []
     var selectedDate:String?
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -42,6 +41,7 @@ class TaskDetailsTableViewController: UITableViewController
         }
         if let toEditItem = toDoItem
         {
+            deleteButton.isHidden = false
             title = "Edit Task"
             doneButton.isEnabled = true;
             taskName.text = toEditItem.item
@@ -56,6 +56,7 @@ class TaskDetailsTableViewController: UITableViewController
         }
         else
         {
+            deleteButton.isHidden = true
             if let index = allCats.index(of: selectedCategory!)
             {
                 pickerView.selectRow(index, inComponent: 0, animated: false)
@@ -95,6 +96,16 @@ class TaskDetailsTableViewController: UITableViewController
             addOrEditItem()
         }
     }
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBAction func deleteButtonPress(_ sender: UIButton)
+    {
+        if toDoItem != nil
+        {
+            delegate?.editItem(item: toDoItem!,deleteItem: true)
+            navigationController?.popViewController(animated: true)
+        }
+    }
     func addOrEditItem()
     {
         if !(taskName.text!.isEmpty) || taskName.text != " "
@@ -107,7 +118,7 @@ class TaskDetailsTableViewController: UITableViewController
                     toDoItem?.date = date
                 }
                 toDoItem?.category = selectedCategory;
-                delegate?.editItem(item: toDoItem!)
+                delegate?.editItem(item: toDoItem!,deleteItem: false)
             }
             else
             {
