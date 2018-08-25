@@ -17,7 +17,7 @@ class LocalPushManager: NSObject {
             if error == nil && granted
             {
                 UserDefaults.standard.setValue(true, forKey: "SendNotification")
-                LocalPushManager.shared.sendLocalPush(in: 60 * 120)
+                LocalPushManager.shared.sendLocalPush(in: 60)//change that to 60 * the time you want making it one minute is just for testing purposes
             }
         }
     }
